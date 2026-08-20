@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: skku2_backend
+  datasource:
+    url: jdbc:sqlite:identifier.sqlite
+    driver-class-name: org.sqlite.JDBC
+  jpa:
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+openai:
+  api-key: ${OPENAI_API_KEY}
+  model: gpt-4.1

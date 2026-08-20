@@ -1,0 +1,39 @@
+### 하루 기록 저장 (수면 부족 사례 - 3일 연속)
+POST http://localhost:8080/api/daily-records
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "loggedDate": "2026-08-18",
+  "sleepDurationMinutes": 270,
+  "waterIntakeMl": 1200,
+  "isFasting": false,
+  "isRestDay": false,
+  "totalCaloriesKcal": 1800,
+  "sodiumMg": 2200
+}
+
+### 같은 유저, 다음날 - 트러블 발생 (2~3일 뒤 반응 확인용)
+POST http://localhost:8080/api/daily-records
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "loggedDate": "2026-08-21",
+  "dailySkinScore": 62,
+  "oilyIntensityScore": 78,
+  "blackheadScore": 65,
+  "poresScore": 70,
+  "sleepDurationMinutes": 260
+}
+
+### 같은 유저 + 같은 날짜로 다시 저장 → insert가 아니라 update 되는지 확인용
+POST http://localhost:8080/api/daily-records
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "loggedDate": "2026-08-21",
+  "dailySkinScore": 58,
+  "menstrualPhase": "LUTEAL"
+}

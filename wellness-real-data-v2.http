@@ -1,0 +1,228 @@
+### 1. WHS - 자체 종합 웰니스 앱 (피부/체중/인바디/수면/수분/식사/운동 전반)
+### TRACE 자체 측정값(유분기/블랙헤드/모공)도 WHS가 함께 제공하는 걸로 포함
+POST http://localhost:8080/api/wellness
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="request"
+Content-Type: application/json
+
+{
+  "name": "WHS",
+  "description": "피부 진단, 체중, 인바디, 수면, 수분, 식사, 운동 데이터를 종합적으로 기록하는 웰니스 앱",
+  "weeklyCostPerParticipant": 5000,
+  "collectedDataTypes": [
+    "피부 점수",
+    "피부 나이",
+    "유분기 점수",
+    "블랙헤드 점수",
+    "모공 점수",
+    "기상 후/취침 전 체중",
+    "체수분량/골격근량/체지방량",
+    "피하지방 두께",
+    "수면 시간",
+    "잠든 시각",
+    "기상 시각",
+    "수분 섭취량",
+    "단식 여부",
+    "휴식일 여부"
+  ]
+}
+--WebAppBoundary--
+
+### 2. InBody 앱 - 체성분 분석 (기기 연동, 완전 무료)
+POST http://localhost:8080/api/wellness
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="request"
+Content-Type: application/json
+
+{
+  "name": "InBody 앱",
+  "description": "인바디 기기와 연동해 체지방률 등 정밀 체성분 데이터를 제공하는 앱",
+  "weeklyCostPerParticipant": 0,
+  "collectedDataTypes": [
+    "체지방률"
+  ]
+}
+--WebAppBoundary--
+
+### 3. Samsung Health - 삼성 헬스 (완전 무료)
+POST http://localhost:8080/api/wellness
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="request"
+Content-Type: application/json
+
+{
+  "name": "Samsung Health",
+  "description": "갤럭시 워치/스마트폰과 연동되는 삼성 종합 건강관리 앱",
+  "weeklyCostPerParticipant": 0,
+  "collectedDataTypes": [
+    "체지방률",
+    "걸음 수"
+  ]
+}
+--WebAppBoundary--
+
+### 4. 필라이즈 - 슈가케어(CGM 연속혈당측정) 구독 서비스
+POST http://localhost:8080/api/wellness
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="request"
+Content-Type: application/json
+
+{
+  "name": "필라이즈",
+  "description": "혈당 센서 기반 슈가케어 프로그램으로 정밀 영양소와 혈당 데이터를 관리하는 서비스",
+  "weeklyCostPerParticipant": 15000,
+  "collectedDataTypes": [
+    "총 섭취 칼로리",
+    "지방 섭취량",
+    "당류 섭취량",
+    "나트륨 섭취량"
+  ]
+}
+--WebAppBoundary--
+
+### 5. 인아웃 - 식단 관리 앱
+POST http://localhost:8080/api/wellness
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="request"
+Content-Type: application/json
+
+{
+  "name": "인아웃",
+  "description": "섭취/소모 칼로리를 기록하는 국내 식단 관리 앱",
+  "weeklyCostPerParticipant": 1000,
+  "collectedDataTypes": [
+    "총 섭취 칼로리",
+    "지방 섭취량",
+    "당류 섭취량",
+    "나트륨 섭취량"
+  ]
+}
+--WebAppBoundary--
+
+### 6. FatSecret - 글로벌 칼로리 카운터
+POST http://localhost:8080/api/wellness
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="request"
+Content-Type: application/json
+
+{
+  "name": "FatSecret",
+  "description": "전 세계에서 사용되는 무료 칼로리 카운터, Premium은 정밀 영양소 데이터 제공",
+  "weeklyCostPerParticipant": 1200,
+  "collectedDataTypes": [
+    "총 섭취 칼로리",
+    "지방 섭취량",
+    "당류 섭취량",
+    "나트륨 섭취량"
+  ]
+}
+--WebAppBoundary--
+
+### 7. Apple Health - 애플 건강 앱 (완전 무료)
+### 원본 스키마 주석에 [SleepCycle/AppleHealth]뿐 아니라 [핑크다이어리/Clue/AppleHealth]도 함께 태그되어 있어 생리주기도 포함
+POST http://localhost:8080/api/wellness
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="request"
+Content-Type: application/json
+
+{
+  "name": "Apple Health",
+  "description": "아이폰 기본 건강 앱, 수면/생리주기 등 데이터를 다른 앱과 자동 동기화",
+  "weeklyCostPerParticipant": 0,
+  "collectedDataTypes": [
+    "깊은 수면 비율",
+    "생리 주기 단계"
+  ]
+}
+--WebAppBoundary--
+
+### 8. Sleep Cycle - 수면 분석 앱
+POST http://localhost:8080/api/wellness
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="request"
+Content-Type: application/json
+
+{
+  "name": "Sleep Cycle",
+  "description": "사운드 분석 기반으로 수면 단계와 깊은 수면 비율을 측정하는 앱",
+  "weeklyCostPerParticipant": 600,
+  "collectedDataTypes": [
+    "깊은 수면 비율"
+  ]
+}
+--WebAppBoundary--
+
+### 9. 핑크다이어리 - 국내 생리주기 앱
+POST http://localhost:8080/api/wellness
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="request"
+Content-Type: application/json
+
+{
+  "name": "핑크다이어리",
+  "description": "생리 주기와 배란일을 기록하는 국내 여성 건강 앱",
+  "weeklyCostPerParticipant": 500,
+  "collectedDataTypes": [
+    "생리 주기 단계"
+  ]
+}
+--WebAppBoundary--
+
+### 10. Clue - 글로벌 생리주기 앱
+POST http://localhost:8080/api/wellness
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="request"
+Content-Type: application/json
+
+{
+  "name": "Clue",
+  "description": "하버드/MIT 연구진과 협력해 개발한 글로벌 생리주기 추적 앱",
+  "weeklyCostPerParticipant": 2800,
+  "collectedDataTypes": [
+    "생리 주기 단계"
+  ]
+}
+--WebAppBoundary--
+
+### 11. 공공데이터포털 - 정부 공공데이터 (완전 무료)
+POST http://localhost:8080/api/wellness
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="request"
+Content-Type: application/json
+
+{
+  "name": "공공데이터포털",
+  "description": "자외선 지수, 미세먼지 농도 등 환경 데이터를 제공하는 정부 공공데이터 API",
+  "weeklyCostPerParticipant": 0,
+  "collectedDataTypes": [
+    "자외선 지수",
+    "초미세먼지 농도"
+  ]
+}
+--WebAppBoundary--
+
+### 등록한 전체 웰니스 목록 조회
+GET http://localhost:8080/api/wellness
+Accept: application/json
